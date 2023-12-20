@@ -12,5 +12,3 @@ const BookList = ({ books }) => {
 };
 
 export default BookList;
-
-//BookList è più generico + non gli viene immesso direttamente l'array dei libri = più riutilizzabile e modulare
