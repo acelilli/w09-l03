@@ -11,9 +11,9 @@ class SingleBook extends Component {
 
   handleToggleSelected = () => {
     // Toggle per togliere/mettere la selezione, vero e proprio METODO e SETTA uno STATO previously
-    this.setState((prevState) => ({
-      selected: !prevState.selected,
-    }));
+    this.setState({
+      selected: !this.state.selected,
+    });
   };
 
   render() {

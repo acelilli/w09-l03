@@ -5,7 +5,7 @@ import { Container, Row } from "react-bootstrap";
 import Welcome from "./components/Welcome";
 import BookList from "./components/BookList";
 import Fantasy from "./books/fantasy.json";
-import Horror from "./books/horror.json";
+// import Horror from "./books/horror.json";
 // import Romance from "./books/romance.json";
 // import HistoryBooks from "./books/history.json";
 // import Scifi from "./books/scifi.json";
