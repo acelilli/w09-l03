@@ -1,24 +1,13 @@
+import React, { Component } from "react";
 import { Col, Card, Button } from "react-bootstrap";
-import { Component } from "react";
 
 class SingleBook extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selected: false,
-    }; // Il costruttore traccia se un libro è selezionato o no (partendo da false?)
-  }
-
-  handleToggleSelected = () => {
-    // Toggle per togliere/mettere la selezione, vero e proprio METODO e SETTA uno STATO previously
-    this.setState({
-      selected: !this.state.selected,
-    });
+  state = {
+    selected: false,
   };
 
   render() {
     const { book } = this.props;
-    const { selected } = this.state;
 
     return (
       <Col sm={12} md={6} lg={3}>
@@ -29,7 +18,7 @@ class SingleBook extends Component {
             width: "270px",
             margin: "auto",
             marginBottom: "1rem",
-            border: selected ? "2px solid red" : "2px solid grainsboro", // ? => ternary operator o conditional operator: condizione ? espressione_se_vera : espressione_se_falsa; tipo if/else
+            border: this.state.selected ? "2px solid red" : "2px solid rgba(0, 0, 0, 0.175)",
           }}
         >
           <Card.Img
@@ -37,7 +26,10 @@ class SingleBook extends Component {
             src={book.img}
             alt="Book Cover"
             className="img-contain"
-            style={{ height: "70%" }}
+            style={{
+              height: "70%",
+              border: "2px solid grainsporo",
+            }}
           />
           <Card.Body>
             <Card.Title style={{ whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
@@ -46,7 +38,7 @@ class SingleBook extends Component {
             <Card.Text>
               <p>- {book.price}</p>
             </Card.Text>
-            <Button variant="primary" onClick={this.handleToggleSelected}>
+            <Button variant="primary" onClick={() => this.setState({ selected: !this.state.selected })}>
               Select
             </Button>
           </Card.Body>
